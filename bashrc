@@ -71,8 +71,7 @@ On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 
 
-alias cdwork="cd ~/Desktop/Workspace"
-
+alias cdwork="cd ~/Desktop/workspace"
 
 parse_git() {
 	git status &> /tmp/temp_1
@@ -178,7 +177,11 @@ extract()
 
 # PS1="\n\[$BWhite\][\$?][\!] \[$Cyan\][\u] \[$Green\][\w] \[$BYellow\]\$(parse_git branch)\[$Color_Off\] [\T] [\d] \n$ "
 
-PS1="\n\[$BWhite\][\$?] \[$Cyan\][\u] \[$Green\][\w] \[$BYellow\]\$(parse_git branch)\[$Color_Off\] [\T] [\d] \n$ "
+export PROMPT_COMMAND='
+if [[ $? == "0" ]]; then _color=$BWhite; else _color=$BRed; fi;
+if [ ${#PWD} -gt 50 ]; then _wd=\\W; else _wd=\\w; fi;
+PS1="\n\[${_color}\][\$?] \[$Cyan\][\u] \[$Green\][${_wd}] \[$BYellow\]\$(parse_git branch)\[$Color_Off\] [\T] [\d] \n$ "'
+
+alias rm='echo "This is not the command you are looking for. Use trash-put instead"; false'
 
 # export PS1="\u@\h:\w [\d \t] \\$ \[$(tput sgr0)\]"
-
