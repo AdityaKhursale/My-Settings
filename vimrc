@@ -1,1 +1,10 @@
-/Users/aditya/.vimrc
+syntax on
+set hlsearch
+set number
+set exrc
+set secure
+set encoding=utf-8
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set colorcolumn=79
