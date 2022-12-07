@@ -74,7 +74,7 @@ On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 
 
-alias cdwork="cd ~/Desktop/workspace"
+alias cdwork="cd ~/workspace"
 alias vim="/opt/homebrew/bin/vim"
 
 parse_git() {
