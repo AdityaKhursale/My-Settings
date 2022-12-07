@@ -1,3 +1,6 @@
+[[ $- == *i* ]] &&
+  source "$HOME/.local/share/blesh/ble.sh" --attach=none
+
 Color_Off='\e[0m'       # Text Reset
 
 # Regular Colors
@@ -72,6 +75,7 @@ On_IWhite='\e[0;107m'   # White
 
 
 alias cdwork="cd ~/Desktop/workspace"
+alias vim="/opt/homebrew/bin/vim"
 
 parse_git() {
 	git status &> /tmp/temp_1
@@ -178,10 +182,16 @@ extract()
 # PS1="\n\[$BWhite\][\$?][\!] \[$Cyan\][\u] \[$Green\][\w] \[$BYellow\]\$(parse_git branch)\[$Color_Off\] [\T] [\d] \n$ "
 
 export PROMPT_COMMAND='
-if [[ $? == "0" ]]; then _color=$BWhite; else _color=$BRed; fi;
+if [[ $? == "0" ]]; then _color=$Color_Off; else _color=$BIRed; fi;
 if [ ${#PWD} -gt 50 ]; then _wd=\\W; else _wd=\\w; fi;
-PS1="\n\[${_color}\][\$?] \[$Cyan\][\u] \[$Green\][${_wd}] \[$BYellow\]\$(parse_git branch)\[$Color_Off\] [\T] [\d] \n$ "'
+PS1="\n\[${_color}\][\$?] \[$Cyan\][\u] \[$BIGreen\][${_wd}] \[$BIYellow\]\$(parse_git branch)\[$Color_Off\] [\T] [\d] \n$ "'
 
 alias rm='echo "This is not the command you are looking for. Use trash-put instead"; false'
 
+#export BASH_COMPLETION_COMPAT_DIR="/opt/homebrew/etc/bash_completion.d"
+#[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 # export PS1="\u@\h:\w [\d \t] \\$ \[$(tput sgr0)\]"
+[[ ${BLE_VERSION-} ]] && ble-attach
+
+export PYTHONPATH="/Users/aditya/miniforge3/bin/python3"
+export PYTHON3_PATH="/Users/aditya/miniforge3/bin/python3"
