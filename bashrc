@@ -76,7 +76,7 @@ On_IWhite='\e[0;107m'   # White
 
 alias cdwork="cd ~/workspace"
 alias vim="/opt/homebrew/bin/vim"
-
+alias trash="trash-put"
 parse_git() {
 	git status &> /tmp/temp_1
 	cat /tmp/temp_1 | grep "fatal: Not a git repository" > /tmp/temp_1_err
@@ -186,7 +186,7 @@ if [[ $? == "0" ]]; then _color=$Color_Off; else _color=$BIRed; fi;
 if [ ${#PWD} -gt 50 ]; then _wd=\\W; else _wd=\\w; fi;
 PS1="\n\[${_color}\][\$?] \[$Cyan\][\u] \[$BIGreen\][${_wd}] \[$BIYellow\]\$(parse_git branch)\[$Color_Off\] [\T] [\d] \n$ "'
 
-alias rm='echo "This is not the command you are looking for. Use trash-put instead"; false'
+alias rm='echo "This is not the command you are looking for. Use trash command instead"; false'
 
 #export BASH_COMPLETION_COMPAT_DIR="/opt/homebrew/etc/bash_completion.d"
 #[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
